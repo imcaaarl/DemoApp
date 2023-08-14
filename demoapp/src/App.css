@@ -1,0 +1,33 @@
+.App {
+    top: 0;
+    height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        transform: translate3d(0, -20%, 0);
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        transform: translate3d(0, 0%, 0);
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        transform: translate3d(0, 0%, 0);
+        opacity: 0;
+        display: block;
+    }
+    100% {
+        transform: translate3d(0, -20%, 0);
+        opacity: 1;
+        display: none;
+    }
+}

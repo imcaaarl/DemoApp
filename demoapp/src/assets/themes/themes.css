@@ -1,0 +1,18 @@
+:root {
+    --bg-color: #eeeeee;
+    --border-color: rgb(190, 190, 190);
+    --text-color: rgb(55, 55, 55);
+    --primary-color: #CCD5AE;
+    --secondary-color: #E9EDC9;
+    --accent-color: #FAEDCD;
+}
+
+[data-theme='dark'] {
+    --bg-color: rgb(237, 237, 237);
+    --border-color: dimgrey;
+    --text-color: black;
+    --primary-color: grey;
+    --secondary-color: grey;
+    --accent-color: grey;
+    --link-color: blue;
+}

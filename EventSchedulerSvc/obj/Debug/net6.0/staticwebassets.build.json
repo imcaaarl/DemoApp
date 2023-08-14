@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "VWXKvuG/bHHi8c1HwJ3SQU8Fm1s4lNr2lVB8KdafyYQ=",
+  "Source": "EventSchedulerSvc",
+  "BasePath": "_content/EventSchedulerSvc",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
