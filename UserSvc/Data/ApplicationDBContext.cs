@@ -10,5 +10,14 @@ namespace UserSvc.Data
         }
 
         public DbSet<User> tblusers { get; set; }
+        public DbSet<UserRole> tbluserroles { get; set; }
+        public DbSet<UserType> tblusertypes { get; set; }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<User>()
+        //        .HasOne(u => u.tblusertypes)
+        //        .WithOne(ut => ut.tblusers)
+        //        .HasForeignKey<User>(u => u.UserTypeId);
+        //}
     }
 }

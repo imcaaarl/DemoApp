@@ -20,6 +20,7 @@ builder.Services.AddDbContextPool<ApplicationDBContext>(options => options.UseMy
     ));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();

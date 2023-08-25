@@ -8,11 +8,29 @@
 }
 
 [data-theme='dark'] {
-    --bg-color: rgb(237, 237, 237);
+    --bg-color: rgb(66, 66, 66);
     --border-color: dimgrey;
     --text-color: black;
     --primary-color: grey;
     --secondary-color: grey;
     --accent-color: grey;
     --link-color: blue;
+}
+
+@keyframes bg-fade-in {
+    0% {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes visibility-fade-in {
+    0% {
+        visibility: hidden;
+    }
+    100% {
+        visibility: visible;
+    }
 }

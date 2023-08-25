@@ -1,8 +1,11 @@
-import Layout from "../../components/layout/Layout";
+import {Fragment} from 'react';
+import Navbar from "../../components/layout/navbar/Navbar";
 
 const Home = () =>{
     return(
-        <Layout/>
+        <Fragment>
+            <Navbar/>
+        </Fragment>
     )
 }
 

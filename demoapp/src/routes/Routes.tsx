@@ -2,24 +2,34 @@ import { FC } from 'react'
 import {Route,Routes} from 'react-router-dom'
 import Login from '../pages/login/Login'
 import Home from '../pages/home/Home'
-import PrivateRoute from './PrivateRoutes'
 import Registration from '../pages/login/Registration'
+import Layout from '../components/layout/Layout'
+import NotFound from '../pages/NotFound'
+import RequireAuth from '../pages/login/RequireAuth'
 
+// const ROLES={
+//     'User':'User',
+//     'Admin':'Administrator',
+// }
 interface RoutesProps {
     isAuthenticated: boolean;
   }
 const MyRoutes: FC<RoutesProps> = ({ isAuthenticated })=>{
     return(
         <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Registration />} />
-            {/* <PrivateRoute
-                path="/"
-                isAuthenticated={isAuthenticated}
-                redirectPath="/login"
-            > */}
-            <Route path="/" element={<Home />} />
-            {/* </PrivateRoute> */}
+            <Route path="/" element={<Layout />}>
+                {/* Public Routes */}
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Registration />} />
+
+                {/* Private Routes */}
+                <Route element={<RequireAuth allowedRoles={[{role:'User'},{role:'Administrator'}]}/>}>
+                    <Route path="/" element={<Home />} />
+                </Route>
+
+                {/* All */}
+                <Route path="*" element={<NotFound />} />
+            </Route>
         </Routes>
     )
 }

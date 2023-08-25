@@ -1,5 +1,5 @@
 import { FormEvent, useRef, useState } from 'react';
-import { FormContainer, BodyWrapper, FlexDiv, FormInput, Title } from './styled';
+import { FormContainer, BodyWrapper, FlexDiv, FormInput, Title,SubmitButton } from './styled';
 import { encryptPassword } from '../../services/passwordHashSvc';
 import { register } from '../../services/loginSvc';
 
@@ -50,9 +50,9 @@ interface FormValues {
           <label htmlFor="">Role</label>
           <FormInput type="text" value={values.Role}name='Role' onChange={onChange}/>
           <label htmlFor="">Password</label>
-          <FormInput type="text" value={values.Password}name='Password' onChange={onChange}/>
+          <FormInput type="password" name='Password' onChange={onChange}/>
           <hr />
-          <button type="submit">Submit</button>
+          <SubmitButton type="submit">Submit</SubmitButton>
           </FlexDiv>
         </FormContainer>
       </BodyWrapper>

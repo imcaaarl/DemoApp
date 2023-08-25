@@ -1,4 +1,5 @@
 ﻿using UserSvc.Models;
+using UserSvc.Requests;
 
 namespace UserSvc.Repositories
 {
@@ -7,7 +8,7 @@ namespace UserSvc.Repositories
         public Task<List<User>> GetUsersAsync();
         public Task<User> GetUserByIdAsync(int id);
         public Task AddUserAsync(User user);
-        public Task<User> UpdateUserAsync(User user);
+        public Task<bool> UpdateUserAsync(UserByIdRequest user);
         public Task<bool> DeleteUserAsync(int Id);
     }
 }

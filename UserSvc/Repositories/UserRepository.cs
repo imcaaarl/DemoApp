@@ -2,6 +2,7 @@
 using UserSvc.Models;
 using Microsoft.EntityFrameworkCore;
 using UserSvc.Repositories;
+using UserSvc.Requests;
 
 namespace UserSvc.Repository
 {
@@ -33,9 +34,24 @@ namespace UserSvc.Repository
             return await _dbContext.tblusers.ToListAsync();
         }
 
-        public Task<User> UpdateUserAsync(User user)
+        public async Task<bool> UpdateUserAsync(UserByIdRequest user)
         {
-            throw new NotImplementedException();
+            var record = await _dbContext.tblusers.FindAsync(user?.Id);
+            if(record == null) { return false; }
+
+            record.FullName = user.FullName;
+            record.Email = user.Email;
+
+            _dbContext.Entry(record).State = EntityState.Modified;
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return false;
+            }
         }
     }
 }

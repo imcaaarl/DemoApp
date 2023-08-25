@@ -48,3 +48,15 @@ export const Div=styled.div`
 export const Title = styled.h1`
     align-self:center;
 `
+
+export const SubmitButton = styled.button`
+    align-self:center;
+    width:80px;
+    height:30px;
+    transition:transform 0.1s;
+
+    &:hover{
+        cursor:pointer;
+        transform: scale(1.1,1.1);
+    }
+`

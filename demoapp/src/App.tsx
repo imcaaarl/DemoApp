@@ -1,10 +1,8 @@
 import './App.css';
-import { ThemeContext } from './assets/themes/theme-context';
 import { FC, useEffect, useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes } from 'react-router-dom';
+
 import MyRoutes from './routes/Routes';
-import PrivateRoute from './routes/PrivateRoutes';
-import Login from './pages/login/Login';
 
 const App: FC = ()=> {
   const [isAuthenticated,setIsAuthenticated]=useState<boolean>(false);
@@ -18,23 +16,9 @@ const App: FC = ()=> {
     checkLoginStatus();
   },[]);
 
-  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  const getTheme = ():string=>{
-    const localStorageTheme=localStorage.getItem('theme');
-    const browserDefault = defaultDark?'dark':'light';
-    return localStorageTheme||browserDefault;
-  }
-
-  const [theme,setTheme] = useState(getTheme());
-
   return (
     <BrowserRouter>
-      <ThemeContext.Provider value={{theme,setTheme}}>
-        <div className='App' data-theme={theme}>
-        <MyRoutes isAuthenticated={isAuthenticated} />
-        </div>
-      </ThemeContext.Provider>
+      <MyRoutes isAuthenticated={false}/>
     </BrowserRouter>
       
   );

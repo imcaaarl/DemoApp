@@ -1,6 +1,7 @@
 ﻿using AuthSvc.Authentication;
 using AuthSvc.Models;
 using AuthSvc.Repositories;
+using AuthSvc.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AuthSvc.Controllers
@@ -20,13 +21,19 @@ namespace AuthSvc.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AuthResponse>> Authenticate([FromBody] AuthRequest request)
+        public async Task<ActionResult> Authenticate([FromBody] AuthRequest request)
         {
+            var vmresData = new vmResData();
             var authResult = await _userRepository.GetUserAsync(request);
-            if (authResult == null) return Unauthorized();
-            var authResponce = _jwtTokenHandler.GenerateJwtToken(authResult);
-            if (authResponce == null) return Unauthorized();
-            return authResponce;
+            if (authResult == null) return Unauthorized("qweqewe");
+            var jwt = _jwtTokenHandler.GenerateJwtToken(authResult);
+            if (jwt == null) return Unauthorized();
+
+            vmresData.userAccount = authResult;
+            vmresData.jwt = jwt;
+
+            var vmResponse = new vmResponse{ Status = "Success", Message = "Login Success!", Data = vmresData };
+            return Ok(vmResponse);
         }
     }
 }

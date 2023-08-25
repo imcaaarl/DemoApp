@@ -1,29 +1,34 @@
 import axios from 'axios';
 import { encryptPassword, verifyPassword } from './passwordHashSvc';
+import { IUserAccount } from '../interface/IUserAccount';
 
-interface response {
-    response:string | "No response",
+interface vmResponse {
+    data: {
+        userAccount:IUserAccount;
+        jwt:{
+            token:string;
+            expiresIn:number;
+        }
+    };
+    status: string;
+    message: string;
 }
 
 export const register = async (data:any) =>{
-    data.Password = await encryptPassword(data.Password);
-    axios.post<response>('https://localhost:3000/Register', data,
+    axios.post<vmResponse>('https://localhost:3000/Register', data,
     {
         headers: {
             'Content-Type': 'application/json'
             }
         })
         .then(res => {
-            console.log(res.data);
         })
         .catch((error)=>{
-            console.log(error.message);
         })
 }
 
 export const login = async (data:any) =>{
-
-    axios.post<response>('https://localhost:3000/Auth', data,
+    var response = await axios.post<vmResponse>('https://localhost:3000/Auth', data,
     {
         headers: {
             'Content-Type': 'application/json'
@@ -31,10 +36,11 @@ export const login = async (data:any) =>{
     }
     )
     .then(res => {
-        console.log(res.data);
-        // const isPasswordMatch = await verifyPassword(data.Password,res.data)
+        return res.data;
     })
     .catch((error)=>{
-        console.log(error.message);
+        var res = {"status":"Error", "message":"Unable to Login"};
+        return res;
     })
+    return response;
 }

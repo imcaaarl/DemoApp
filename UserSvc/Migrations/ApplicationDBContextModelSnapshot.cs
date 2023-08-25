@@ -25,37 +25,122 @@ namespace UserSvc.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CreatedBy_Id")
+                    b.Property<int?>("CreatedBy_Id")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DateLastUpdated")
+                    b.Property<DateTime?>("DateLastUpdated")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
-                    b.Property<int>("ModifiedBy_Id")
+                    b.Property<int?>("ModifiedBy_Id")
                         .HasColumnType("int");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int?>("UserRoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserTypeId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserRoleId")
+                        .IsUnique();
+
+                    b.HasIndex("UserTypeId")
+                        .IsUnique();
+
                     b.ToTable("tblusers");
+                });
+
+            modelBuilder.Entity("UserSvc.Models.UserRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CreatedBy_Id")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateLastUpdated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int?>("ModifiedBy_Id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("UserRoleCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbluserroles");
+                });
+
+            modelBuilder.Entity("UserSvc.Models.UserType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("UserTypeCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tblusertypes");
+                });
+
+            modelBuilder.Entity("UserSvc.Models.User", b =>
+                {
+                    b.HasOne("UserSvc.Models.UserRole", "tbluserroles")
+                        .WithOne("tblusers")
+                        .HasForeignKey("UserSvc.Models.User", "UserRoleId");
+
+                    b.HasOne("UserSvc.Models.UserType", "tblusertypes")
+                        .WithOne("tblusers")
+                        .HasForeignKey("UserSvc.Models.User", "UserTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("tbluserroles");
+
+                    b.Navigation("tblusertypes");
+                });
+
+            modelBuilder.Entity("UserSvc.Models.UserRole", b =>
+                {
+                    b.Navigation("tblusers")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("UserSvc.Models.UserType", b =>
+                {
+                    b.Navigation("tblusers")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

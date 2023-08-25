@@ -19,7 +19,7 @@ namespace AuthSvc.Authentication
         {
         }
 
-        public AuthResponse? GenerateJwtToken(UserAccount userAccount)
+        public jwt? GenerateJwtToken(UserAccount userAccount)
         {
             if (string.IsNullOrWhiteSpace(userAccount.Email) || string.IsNullOrWhiteSpace(userAccount.Password))
             {
@@ -51,11 +51,10 @@ namespace AuthSvc.Authentication
             var securityToken = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
             var token = jwtSecurityTokenHandler.WriteToken(securityToken);
 
-            return new AuthResponse
+            return new jwt
             {
-                Email = userAccount.Email,
                 ExpiresIn = (int)tokenExpiryTimeStamp.Subtract(DateTime.Now).TotalSeconds,
-                JwtToken = token,
+                Token = token,
             };
         }
     }

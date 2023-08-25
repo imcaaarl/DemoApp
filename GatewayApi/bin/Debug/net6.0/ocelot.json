@@ -34,7 +34,7 @@
         "GET"
       ]
     },
-//------users
+    //------users
     {
       "DownstreamPathTemplate": "/api/User",
       "DownstreamScheme": "https",
@@ -49,7 +49,35 @@
         "GET"
       ]
     },
-//---------------
+    {
+      "DownstreamPathTemplate": "/api/User/UpdateUser",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3002
+        }
+      ],
+      "UpstreamPathTemplate": "/UpdateUser",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/UserRole",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 3002
+        }
+      ],
+      "UpstreamPathTemplate": "/UserRole",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    //---------------
     {
       "DownstreamPathTemplate": "/api/User/{id}",
       "DownstreamScheme": "https",
