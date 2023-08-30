@@ -29,7 +29,13 @@ namespace AuthSvc.Controllers
             var jwt = _jwtTokenHandler.GenerateJwtToken(authResult);
             if (jwt == null) return Unauthorized();
 
-            vmresData.userAccount = authResult;
+            var vmResUserAccount = new vmResUserAccount(
+                authResult.Id,authResult.FullName, authResult.Email, 
+                authResult.tbluserroles.Role, authResult.tbluserroles.UserRoleCode,
+                authResult.tblusertypes.Type,authResult.tblusertypes.UserTypeCode
+                );
+
+            vmresData.userAccount = vmResUserAccount;
             vmresData.jwt = jwt;
 
             var vmResponse = new vmResponse{ Status = "Success", Message = "Login Success!", Data = vmresData };

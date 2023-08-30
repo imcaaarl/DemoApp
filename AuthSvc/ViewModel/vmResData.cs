@@ -4,7 +4,7 @@ namespace AuthSvc.ViewModel
 {
     public class vmResData
     {
-        public UserAccount? userAccount { get; set; }
+        public vmResUserAccount? userAccount { get; set; }
         public jwt? jwt { get; set; }
     }
 }

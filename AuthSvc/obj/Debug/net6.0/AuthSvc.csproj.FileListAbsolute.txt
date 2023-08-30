@@ -1,3 +1,10 @@
+C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.AssemblyInfo.cs
+C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\bin\Debug\net6.0\appsettings.json
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\bin\Debug\net6.0\AuthSvc.exe
@@ -39,13 +46,6 @@ C:\Users\User\source\repos\DemoAppV2\AuthSvc\bin\Debug\net6.0\System.IdentityMod
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\bin\Debug\net6.0\System.Text.Encodings.Web.dll
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\bin\Debug\net6.0\System.Text.Json.dll
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\bin\Debug\net6.0\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
-C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.csproj.AssemblyReference.cache
-C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.AssemblyInfoInputs.cache
-C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.AssemblyInfo.cs
-C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.csproj.CoreCompileInputs.cache
-C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\AuthSvc.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\staticwebassets\msbuild.AuthSvc.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\staticwebassets\msbuild.build.AuthSvc.props
 C:\Users\User\source\repos\DemoAppV2\AuthSvc\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AuthSvc.props

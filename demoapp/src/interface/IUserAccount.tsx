@@ -2,5 +2,6 @@ export interface IUserAccount{
     Id:number;
     fullName:string;
     email:string;
-    role:string;
+    userRoleCode:number;
+    userTypeCode:number;
 }

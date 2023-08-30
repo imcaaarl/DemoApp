@@ -10,5 +10,7 @@ namespace AuthSvc.Data
         }
 
         public DbSet<UserAccount> tblusers { get; set; }
+        public DbSet<UserRole> tbluserroles { get; set; }
+        public DbSet<UserType> tblusertypes { get; set; }
     }
 }

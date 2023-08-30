@@ -5,21 +5,22 @@ import { FC } from "react";
 
 interface RequireAuthProps {
     allowedRoles: {
-        role:string,
+        role:number,
+        type:number,
     }[];
   }
 
 const RequireAuth:FC<RequireAuthProps> = ({allowedRoles}) =>{
     const {auth}=useAuth();
     const location = useLocation();
-    console.log(auth.role);
+    const isUserRoleAllowed = allowedRoles.some(allowedRole => allowedRole.role === auth?.user.userRoleCode)||
+    allowedRoles.some(allowedRole => allowedRole.type === auth?.user.userTypeCode);
+    console.log(auth);
     return(
-        // auth?.roles?.find((role: { role: string; })=>allowedRoles?.includes(role))?
-        auth?.roles?.some((role: string) => allowedRoles.some(allowedRole => allowedRole.role === role))?
+        isUserRoleAllowed?
         <Outlet/>: auth?.user?
         <Navigate to="/login" state={{from:location}}/>:
-        <Navigate to="/login" state={{from:location}}/>
-        
+        <Navigate to="/login" state={{from:location}}/>  
     );
 }
 

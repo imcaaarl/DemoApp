@@ -36,7 +36,7 @@ namespace AuthSvc.Authentication
             var claimsIdentity = new ClaimsIdentity(new List<Claim>
             {
                 new Claim (JwtRegisteredClaimNames.Name,userAccount.Email),
-                new Claim("Role",userAccount.Role),
+                new Claim("UserRoleCode",userAccount.tbluserroles.UserRoleCode.ToString()),
             });
 
             var signingCredentials = new SigningCredentials(

@@ -26,15 +26,23 @@ const Login: React.FC = (props) => {
   const handleSubmit = async(e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await login(values);
+    console.log(res);
 
     if ('data' in res && res.status === 'Success') {
       const accessToken=res.data.jwt.token;
-      const roles=[res.data.userAccount.role];
-      const user=res.data.userAccount.fullName;
+      const roles=[res.data.userAccount.userRoleCode];
+      // const type=res.data.userTypeCode;
+      const user=res.data.userAccount;
       setAuth({user,roles,accessToken});
       navigate(from, { replace: true });
     } else {
-      navigate('/');
+      var modalData={
+        type: 'error',
+        title: 'Unauthorized',
+        message: 'Invalid Login details.'
+        };
+      showModal(modalData);
+      navigate("/");
     }
   }
     // await login(values).then(res => {

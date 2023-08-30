@@ -6,6 +6,7 @@ import Registration from '../pages/login/Registration'
 import Layout from '../components/layout/Layout'
 import NotFound from '../pages/NotFound'
 import RequireAuth from '../pages/login/RequireAuth'
+import { type } from 'os'
 
 // const ROLES={
 //     'User':'User',
@@ -23,7 +24,7 @@ const MyRoutes: FC<RoutesProps> = ({ isAuthenticated })=>{
                 <Route path="/register" element={<Registration />} />
 
                 {/* Private Routes */}
-                <Route element={<RequireAuth allowedRoles={[{role:'User'},{role:'Administrator'}]}/>}>
+                <Route element={<RequireAuth allowedRoles={[{role:2001,type:1001}]}/>}>
                     <Route path="/" element={<Home />} />
                 </Route>
 
