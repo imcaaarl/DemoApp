@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { BodyWrapper, BtnSave } from "../components/commonStyled";
-import { SetStateAction, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
+import { getRoles } from "../services/UserSvc";
 
-const roles = [
+const dummyroles = [
     { id: 1, role: 'Admin', roleDescription: 'Administrator role' },
     { id: 2, role: 'User', roleDescription: 'Regular user role' },
     { id: 3, role: 'Manager', roleDescription: 'Managerial role' },
@@ -11,30 +12,42 @@ const roles = [
   ];
 
 const SelectRole = ()=>{
+    const [roles,setRoles] = useState<any|null>(null);
     const [selectedRoleId, setSelectedRoleId] = useState<number|null>(null);
+
+    useEffect(() => {
+        (async () => {
+          var res = await getRoles();
+          setRoles(res);
+        })();
+    }, []);
+
     const handleClick = (roleId: number)=>{
         setSelectedRoleId(roleId);
     };
+    const handleSubmit=()=>{
+        console.log(selectedRoleId);
+    }
     return(
         <BodyWrapper>
             <RoleSelectContainer>
                 <h3>Please select role:</h3>
                 <RoleUl>
                     {
-                        roles.map((role)=>{
+                        roles?.map((role:any)=>{
                             return(
                                 <RoleLi key={role.id} onClick={()=>handleClick(role.id)}>
                                     <RoleCheckBox checked={selectedRoleId===role.id}/>
                                     <RoleDescContainer>
                                         <RoleLabel>{role.role}</RoleLabel>
-                                        <RoleDesc>{role.roleDescription}</RoleDesc>
+                                        <RoleDesc>{role.description}</RoleDesc>
                                     </RoleDescContainer>
                                 </RoleLi>
                             )
                         })
                     }
                 </RoleUl>
-                <BtnSave>Submit</BtnSave>
+                <BtnSave onClick={handleSubmit}>Submit</BtnSave>
             </RoleSelectContainer>
         </BodyWrapper>
     );

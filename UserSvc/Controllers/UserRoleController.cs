@@ -1,13 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using UserSvc.Models;
+﻿using UserSvc.vmModel;
 using UserSvc.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace UserSvc.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class UserRoleController
+    public class UserRoleController:ControllerBase
     {
         private readonly IUserRoleRepository _userRoleRepository;
         public UserRoleController(IUserRoleRepository userRoleRepository)
@@ -16,9 +16,12 @@ namespace UserSvc.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<UserRole>>> GetUserRoles()
+        public async Task<ActionResult> GetUserRoles()
         {
-            return await _userRoleRepository.GetUserRolesAsync();
+            var data= await _userRoleRepository.GetUserRolesAsync();
+            if (data == null) return Ok(new vmResponse<object>("Error", "No data found", null));
+            var vmRes = new vmResponse<object>("Success","Successfully fetched data!",data);
+            return Ok(vmRes);
         }
     }
 }
