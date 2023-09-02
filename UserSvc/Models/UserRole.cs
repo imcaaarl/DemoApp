@@ -12,6 +12,9 @@ namespace UserSvc.Models
 
         [Column(TypeName = "varchar(100)")]
         public string Role { get; set; }
+
+        [Column(TypeName = "varchar(255)")]
+        public string Description { get; set; }
         public int UserRoleCode { get; set; }
         public virtual User tblusers { get; set; }
 

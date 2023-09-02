@@ -81,6 +81,10 @@ namespace UserSvc.Migrations
                     b.Property<DateTime?>("DateLastUpdated")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
                     b.Property<int?>("ModifiedBy_Id")
                         .HasColumnType("int");
 
@@ -101,6 +105,10 @@ namespace UserSvc.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Type")
                         .IsRequired()

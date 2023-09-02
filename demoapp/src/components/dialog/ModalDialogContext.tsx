@@ -8,7 +8,6 @@ interface ModalContextProps {
 }
 
 interface modalData{
-  // size:string;
   type:string;
   title:string;
   message:string;
@@ -16,15 +15,10 @@ interface modalData{
 
 const ModalContext = createContext<ModalContextProps | undefined>(undefined);
 
-export const ModalProvider: React.FC<PropsWithChildren> = ({children}) => { // Explicitly type children
+export const ModalProvider: React.FC<PropsWithChildren> = ({children}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState<modalData>();
 
-  // var modalData ={
-  //   type: '',
-  //   title: '',
-  //   message: '',
-  // } ;
   const showModal = (props:modalData) => {
     setModalData(props);
     setIsModalOpen(true);

@@ -1,7 +1,8 @@
 import { FormEvent, useRef, useState } from 'react';
-import { FormContainer, BodyWrapper, FlexDiv, FormInput, Title,SubmitButton } from './styled';
+import { FormContainer, FlexDiv, FormInput, Title,SubmitButton } from './styled';
 import { encryptPassword } from '../../services/passwordHashSvc';
 import { register } from '../../services/loginSvc';
+import { BodyWrapper, BtnPrimary, BtnSave } from '../../components/commonStyled';
 
 // const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -52,7 +53,7 @@ interface FormValues {
           <label htmlFor="">Password</label>
           <FormInput type="password" name='Password' onChange={onChange}/>
           <hr />
-          <SubmitButton type="submit">Submit</SubmitButton>
+          <BtnPrimary type="submit">Submit</BtnPrimary>
           </FlexDiv>
         </FormContainer>
       </BodyWrapper>

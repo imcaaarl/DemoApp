@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavDropDown from "./NavDropdown";
+import ThemeSwitch from "../../../assets/themes/theme-switch";
 
 const NavWrapper = styled.div`
     position:absolute;
@@ -50,8 +51,10 @@ const Navbar = ()=>{
                     <Text>DEMO APP</Text>
                 </Logo>
             </NavContainer>
+            <ThemeSwitch/>
             <NavContainer>
                 <NavItemContainer>
+                    
                     <NavItems $width=""><a href="#logout">Logout</a></NavItems>
                     <NavItems>
                         <NavDropDown/>

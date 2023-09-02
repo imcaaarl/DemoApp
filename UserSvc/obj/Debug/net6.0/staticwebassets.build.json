@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "Hash": "1BTcFOGePDtK4Ausx5Xg5CBK0eRpllMHauArfuMApAs=",
+  "Hash": "Pc70goyNyFrRMi8YDzMXu4HTS9gnmqIxZtKFBBYvBwU=",
   "Source": "UserSvc",
   "BasePath": "_content/UserSvc",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [
     {
-      "Identity": "C:\\Users\\User\\source\\repos\\DemoAppV2\\AuthSvc\\AuthSvc.csproj",
+      "Identity": "C:\\Users\\carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj",
       "Version": 2,
       "Source": "AuthSvc",
       "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
