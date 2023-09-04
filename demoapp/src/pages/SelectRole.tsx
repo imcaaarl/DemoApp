@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { BodyWrapper, BtnSave } from "../components/commonStyled";
 import { SetStateAction, useEffect, useState } from "react";
 import { getRoles } from "../services/UserSvc";
+import { useSpinner } from "../components/spinner/SpinnerContext";
+import useRefreshToken from "../hooks/useRefreshToken";
 
 const dummyroles = [
     { id: 1, role: 'Admin', roleDescription: 'Administrator role' },
@@ -14,11 +16,15 @@ const dummyroles = [
 const SelectRole = ()=>{
     const [roles,setRoles] = useState<any|null>(null);
     const [selectedRoleId, setSelectedRoleId] = useState<number|null>(null);
+    const {showSpinner,hideSpinner,isSpinnerVisible} = useSpinner();
+    const refresh = useRefreshToken();
 
     useEffect(() => {
+        showSpinner();
         (async () => {
-          var res = await getRoles();
-          setRoles(res);
+            var res = await getRoles();
+            setRoles(res);
+            hideSpinner();
         })();
     }, []);
 
@@ -48,6 +54,7 @@ const SelectRole = ()=>{
                     }
                 </RoleUl>
                 <BtnSave onClick={handleSubmit}>Submit</BtnSave>
+                <button onClick={refresh}></button>
             </RoleSelectContainer>
         </BodyWrapper>
     );

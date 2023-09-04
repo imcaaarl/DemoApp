@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../api/axios";
 interface vmResponse<T>{
     data: T;
     status: string;
@@ -13,7 +13,7 @@ export interface vmRoles{
 }
 
 export const getRoles = async () =>{
-    var response = await axios.get<vmResponse<vmRoles>>('https://localhost:3000/userrole',
+    var response = await axios.get('/userrole',
     {
         headers: {
             'Content-Type': 'application/json'

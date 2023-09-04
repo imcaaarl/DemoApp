@@ -23,7 +23,7 @@ const NavItemContainer = styled.ul`
 `
 const NavItems = styled.li<{$width?:string}>`
     width:${props=>props.$width};
-    background-color:lightgrey;
+    background-color:var(--secondary-color);
     float:right;
     border-left:1px solid grey;
     
@@ -41,6 +41,7 @@ const Logo = styled.div`
 `
 const Text=styled.h1`
     margin:0;
+    color:var(--text-color);
 `
 
 const Navbar = ()=>{

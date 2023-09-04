@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "../api/axios";
 import { encryptPassword, verifyPassword } from './passwordHashSvc';
 import { IUserAccount } from '../interface/IUserAccount';
 
@@ -15,7 +15,7 @@ interface vmResponse {
 }
 
 export const register = async (data:any) =>{
-    axios.post<vmResponse>('https://localhost:3000/Register', data,
+    axios.post<vmResponse>('/Register', data,
     {
         headers: {
             'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ export const register = async (data:any) =>{
 }
 
 export const login = async (data:any) =>{
-    var response = await axios.post<vmResponse>('https://localhost:3000/Auth', data,
+    var response = await axios.post<vmResponse>('/Auth', data,
     {
         headers: {
             'Content-Type': 'application/json'

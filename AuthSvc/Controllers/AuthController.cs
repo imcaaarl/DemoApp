@@ -25,7 +25,7 @@ namespace AuthSvc.Controllers
         {
             var vmresData = new vmResData();
             var authResult = await _userRepository.GetUserAsync(request);
-            if (authResult == null) return Unauthorized("qweqewe");
+            if (authResult == null) return Unauthorized();
             var jwt = _jwtTokenHandler.GenerateJwtToken(authResult);
             if (jwt == null) return Unauthorized();
 

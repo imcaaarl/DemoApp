@@ -19,17 +19,18 @@ interface RoutesProps {
 const MyRoutes: FC<RoutesProps> = ({ isAuthenticated })=>{
     return(
         <Routes>
-            <Route path="select_role" element={<SelectRole/>}/>
+            
             <Route path="/" element={<Layout />}>
                 {/* Public Routes */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Registration />} />
-                <Route path="/" element={<Home />} />
-
+                {/* <Route path="/" element={<Home />} />
+                <Route path="select_role" element={<SelectRole/>}/> */}
                 {/* Private Routes */}
-                {/* <Route element={<RequireAuth allowedRoles={[{role:2001,type:1001}]}/>}>
+                <Route element={<RequireAuth allowedRoles={[{role:2001,type:1001}]}/>}>
                     <Route path="/" element={<Home />} />
-                </Route> */}
+                    <Route path="select_role" element={<SelectRole/>}/>
+                </Route>
 
                 {/* All */}
                 <Route path="*" element={<NotFound />} />

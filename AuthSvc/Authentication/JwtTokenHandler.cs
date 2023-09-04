@@ -13,7 +13,7 @@ namespace AuthSvc.Authentication
     public class JwtTokenHandler
     {
         public const string JWT_SECURITY_KEY = "0D5BACE90F56EBB566FE3D41E7C49AB04A9BD84F2ED5F8777678D7CDB6F1585F";
-        private const int JWT_TOKEN_VALIDITY_MINS = 20;
+        private const int JWT_TOKEN_VALIDITY_MINS = 10;
 
         public JwtTokenHandler()
         {

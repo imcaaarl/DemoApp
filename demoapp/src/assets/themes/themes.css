@@ -27,7 +27,7 @@
 [data-theme='dark'] {
     --bg-color: rgb(66, 66, 66);
     --border-color: dimgrey;
-    --text-color: black;
+    --text-color: rgb(202, 202, 202);
     --primary-color: grey;
     --secondary-color: grey;
     --accent-color: grey;
