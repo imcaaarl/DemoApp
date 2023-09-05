@@ -1,8 +1,4 @@
-﻿using AuthSvc.Data;
-using AuthSvc.Models;
-using AuthSvc.Repositories;
-using AuthSvc.Repository;
-using Microsoft.EntityFrameworkCore;
+﻿using AuthSvc.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -13,10 +9,11 @@ namespace AuthSvc.Authentication
     public class JwtTokenHandler
     {
         public const string JWT_SECURITY_KEY = "0D5BACE90F56EBB566FE3D41E7C49AB04A9BD84F2ED5F8777678D7CDB6F1585F";
-        private const int JWT_TOKEN_VALIDITY_MINS = 10;
-
-        public JwtTokenHandler()
+        private const int JWT_TOKEN_VALIDITY_MINS = 5;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public JwtTokenHandler(IHttpContextAccessor httpContextAccessor)
         {
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public jwt? GenerateJwtToken(UserAccount userAccount)
@@ -51,10 +48,21 @@ namespace AuthSvc.Authentication
             var securityToken = jwtSecurityTokenHandler.CreateToken(securityTokenDescriptor);
             var token = jwtSecurityTokenHandler.WriteToken(securityToken);
 
+            var response = _httpContextAccessor.HttpContext.Response;
+            response.Cookies.Append("AuthToken", token, new CookieOptions
+            {
+                HttpOnly = true,
+                Secure = true,
+                SameSite = SameSiteMode.Strict,
+                Expires = tokenExpiryTimeStamp,
+                Path = "/",
+            });
+
             return new jwt
             {
                 ExpiresIn = (int)tokenExpiryTimeStamp.Subtract(DateTime.Now).TotalSeconds,
                 Token = token,
+                
             };
         }
     }

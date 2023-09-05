@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using AuthSvc.Repository;
 using AuthSvc.Authentication;
 using AuthSvc.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,14 @@ builder.Services.AddDbContextPool<ApplicationDBContext>(options => options.UseMy
     ));
 
 builder.Services.AddScoped<IUserAccountRepository, UserAccountRepository>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.HttpOnly = true;
+        options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+        options.Cookie.SameSite = SameSiteMode.Strict;
+    });
 
 
 var app = builder.Build();
@@ -33,6 +42,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();

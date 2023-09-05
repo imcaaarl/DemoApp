@@ -1,6 +1,7 @@
 ﻿using UserSvc.vmModel;
 using UserSvc.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UserSvc.Controllers
 {
@@ -15,6 +16,7 @@ namespace UserSvc.Controllers
             _userRoleRepository = userRoleRepository;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult> GetUserRoles()
         {

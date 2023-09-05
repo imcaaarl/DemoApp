@@ -1,9 +1,9 @@
 using UserSvc.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Http;
 using UserSvc.Repository;
 using UserSvc.Repositories;
 using AuthSvc.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,7 +21,14 @@ builder.Services.AddDbContextPool<ApplicationDBContext>(options => options.UseMy
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserRoleRepository, UserRoleRepository>();
-builder.Services.AddCustomJwtAuthentication();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.Cookie.Name = "AuthToken";
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+        options.SlidingExpiration = true;
+    });
+//builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();
 
@@ -32,8 +39,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
 app.UseAuthentication();
+app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
