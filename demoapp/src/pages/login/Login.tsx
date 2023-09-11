@@ -31,8 +31,6 @@ const Login: React.FC = (props) => {
     e.preventDefault();
     showSpinner();
     const res = await login(values);
-    console.log(res);
-    
 
     if ('data' in res && res.status === 'Success') {
       const accessToken=res.data.jwt.token;

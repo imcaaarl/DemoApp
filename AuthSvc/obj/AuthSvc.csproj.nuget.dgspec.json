@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj": {}
+    "C:\\Users\\Carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj": {
+    "C:\\Users\\Carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj",
+        "projectUniqueName": "C:\\Users\\Carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj",
         "projectName": "AuthSvc",
-        "projectPath": "C:\\Users\\carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj",
-        "packagesPath": "C:\\Users\\carl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carl\\source\\repos\\DemoApp\\AuthSvc\\obj\\",
+        "projectPath": "C:\\Users\\Carl\\source\\repos\\DemoApp\\AuthSvc\\AuthSvc.csproj",
+        "packagesPath": "C:\\Users\\Carl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carl\\source\\repos\\DemoApp\\AuthSvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\carl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

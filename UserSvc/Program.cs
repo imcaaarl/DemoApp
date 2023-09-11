@@ -21,14 +21,15 @@ builder.Services.AddDbContextPool<ApplicationDBContext>(options => options.UseMy
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserRoleRepository, UserRoleRepository>();
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.Cookie.Name = "AuthToken";
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-        options.SlidingExpiration = true;
-    });
-//builder.Services.AddCustomJwtAuthentication();
+//builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+//    .AddCookie(options =>
+//    {
+//        options.Cookie.Name = "AuthToken";
+//        //options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+//        //options.SlidingExpiration = true;
+//        options.LoginPath = "/auth";
+//    });
+builder.Services.AddCustomJwtAuthentication();
 
 var app = builder.Build();
 
@@ -42,6 +43,7 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseCookiePolicy();
 
 app.MapControllers();
 

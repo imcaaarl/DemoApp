@@ -4,27 +4,29 @@ import { SetStateAction, useEffect, useState } from "react";
 import { getRoles } from "../services/UserSvc";
 import { useSpinner } from "../components/spinner/SpinnerContext";
 import useRefreshToken from "../hooks/useRefreshToken";
-
-const dummyroles = [
-    { id: 1, role: 'Admin', roleDescription: 'Administrator role' },
-    { id: 2, role: 'User', roleDescription: 'Regular user role' },
-    { id: 3, role: 'Manager', roleDescription: 'Managerial role' },
-    { id: 4, role: 'Guest', roleDescription: 'Guest role' },
-    { id: 5, role: 'Editor', roleDescription: 'Editor role' },
-  ];
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const SelectRole = ()=>{
     const [roles,setRoles] = useState<any|null>(null);
     const [selectedRoleId, setSelectedRoleId] = useState<number|null>(null);
     const {showSpinner,hideSpinner,isSpinnerVisible} = useSpinner();
     const refresh = useRefreshToken();
+    const axiosPrivate = useAxiosPrivate();
 
     useEffect(() => {
         showSpinner();
         (async () => {
-            var res = await getRoles();
-            setRoles(res);
-            hideSpinner();
+            try {
+                const response = await axiosPrivate.get('/userrole');
+                if (response && response.data) { // Make sure response has data property
+                    console.log(response); // Debug to see the response
+                    setRoles(response.data.data); // Set roles state with data
+                }
+            } catch (error) {
+                console.error(error); // Handle error appropriately
+            } finally {
+                hideSpinner(); // Make sure spinner is hidden whether there's an error or not
+            }
         })();
     }, []);
 

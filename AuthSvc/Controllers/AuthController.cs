@@ -2,7 +2,9 @@
 using AuthSvc.Models;
 using AuthSvc.Repositories;
 using AuthSvc.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace AuthSvc.Controllers
 {
@@ -40,6 +42,13 @@ namespace AuthSvc.Controllers
 
             var vmResponse = new vmResponse{ Status = "Success", Message = "Login Success!", Data = vmresData };
             return Ok(vmResponse);
+        }
+
+        [Authorize]
+        [Route("Refresh"),HttpPost]
+        public async IActionResult RefreshToken([FromBody] RefreshTokenRequest request)
+        {
+            return request.RefreshToken
         }
     }
 }

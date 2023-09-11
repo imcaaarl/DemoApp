@@ -1,4 +1,6 @@
-import axios from "../api/axios";
+import axios, { axiosPrivate } from "../api/axios";
+import useAuth from "../hooks/useAuth";
+// import useAxiosPrivate from "../hooks/useAxiosPrivate";
 interface vmResponse<T>{
     data: T;
     status: string;
@@ -13,7 +15,10 @@ export interface vmRoles{
 }
 
 export const getRoles = async () =>{
-    var response = await axios.get('/userrole',
+    // const axiosPrivate = useAxiosPrivate();
+    // const {auth}=useAuth();
+    // console.log(auth);
+    var response = await axiosPrivate.get('/userrole',
     {
         headers: {
             'Content-Type': 'application/json'

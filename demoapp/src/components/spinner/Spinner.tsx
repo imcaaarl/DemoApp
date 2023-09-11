@@ -14,7 +14,6 @@ const SpinnerMessage=styled.p`
 `
 export const Spinner:React.FC=()=>{
     const {isSpinnerVisible} = useSpinner();
-    console.log(isSpinnerVisible);
 
     if(!isSpinnerVisible) {
         return null;

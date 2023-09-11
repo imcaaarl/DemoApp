@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj": {}
+    "C:\\Users\\Carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj": {
+    "C:\\Users\\Carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj",
+        "projectUniqueName": "C:\\Users\\Carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj",
         "projectName": "EventSchedulerSvc",
-        "projectPath": "C:\\Users\\carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj",
-        "packagesPath": "C:\\Users\\carl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\obj\\",
+        "projectPath": "C:\\Users\\Carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\EventSchedulerSvc.csproj",
+        "packagesPath": "C:\\Users\\Carl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carl\\source\\repos\\DemoApp\\EventSchedulerSvc\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\carl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

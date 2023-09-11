@@ -15,12 +15,12 @@ const RequireAuth:FC<RequireAuthProps> = ({allowedRoles}) =>{
     const location = useLocation();
     const isUserRoleAllowed = allowedRoles.some(allowedRole => allowedRole.role === auth?.user.userRoleCode)||
     allowedRoles.some(allowedRole => allowedRole.type === auth?.user.userTypeCode);
-    console.log(auth);
+    console.log(auth?.user);
     return(
         isUserRoleAllowed?
         <Outlet/>: auth?.user?
-        <Navigate to="/login" state={{from:location}}/>:
-        <Navigate to="/login" state={{from:location}}/>  
+        <Navigate to="/notfound" state={{from:location}} replace/>:
+        <Navigate to="/login" state={{from:location}} replace/>  
     );
 }
 

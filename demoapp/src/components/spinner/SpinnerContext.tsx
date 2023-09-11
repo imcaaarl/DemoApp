@@ -10,9 +10,7 @@ const SpinnerContext = createContext<SpinnerContextProps|undefined>(undefined);
 
 export const SpinnerProvider: React.FC<PropsWithChildren> = ({children})=>{
     const [isSpinnerVisible,setIsSpinnerVisible] = useState(false);
-    // const showSpinner = () => setIsSpinnerVisible(true);
     const showSpinner = () =>{
-        console.log("Spinner");
         setIsSpinnerVisible(true);
     }
     const hideSpinner = () => setIsSpinnerVisible(false);

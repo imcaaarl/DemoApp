@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj": {}
+    "C:\\Users\\Carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj": {
+    "C:\\Users\\Carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj",
+        "projectUniqueName": "C:\\Users\\Carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj",
         "projectName": "GatewayApi",
-        "projectPath": "C:\\Users\\carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj",
-        "packagesPath": "C:\\Users\\carl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carl\\source\\repos\\DemoApp\\GatewayApi\\obj\\",
+        "projectPath": "C:\\Users\\Carl\\source\\repos\\DemoApp\\GatewayApi\\GatewayApi.csproj",
+        "packagesPath": "C:\\Users\\Carl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Carl\\source\\repos\\DemoApp\\GatewayApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\carl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Carl\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
